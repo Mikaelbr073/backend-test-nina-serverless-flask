@@ -1,5 +1,6 @@
 from flask import Flask, request
 from src.api.entities.product import create_product, get_product, delete_product, list_all_product, update_product
+from src.api.entities.insert_media import create_midia
 
 app = Flask(__name__)
 
@@ -30,6 +31,11 @@ def list_all_product_route():
 def update_product_route(product_id):
     update_data = request.get_json()
     return update_product(product_id, update_data)
+
+@app.route("/midia", methods=['POST'])
+def create_midia_route():
+    payload = request.get_json()
+    return payload
 
 @app.errorhandler(404)
 def resource_not_found(e):

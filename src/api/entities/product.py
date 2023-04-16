@@ -6,8 +6,6 @@ from datetime import datetime
 dynamodb_client = boto3.client('dynamodb')
 PRODUCTS_TABLE = os.environ['PRODUCTS_TABLE'] 
 
-#CRUD CREATE, READ, UPDATE, DELETE
-
 def create_product(body):
     _id = body['_id']
     name = body['name']
